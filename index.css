@@ -1,0 +1,56 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark 
+           bg-gradient-to-br 
+           from-[#121212] 
+           via-[#1E1E1E] 
+           to-black 
+           min-h-screen 
+           bg-fixed 
+           text-white 
+           overflow-x-hidden;
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center, 
+      rgba(155,135,245,0.15) 0%, 
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@layer utilities {
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_4px_12px_-2px_rgba(255,255,255,0.1)];
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
